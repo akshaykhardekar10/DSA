@@ -1,6 +1,6 @@
 package dsa;
 
-public class RecursionPractice {
+public  class RecursionPractice {
 
 
 
@@ -39,7 +39,6 @@ public class RecursionPractice {
             return nth_fibonacci(n-1)+nth_fibonacci(n-2);
         }
     }
-
     public static long sumOfDigits(long  n){
         if (n >=1 && n<=9) {
             return n;
@@ -48,16 +47,35 @@ public class RecursionPractice {
         return n;
     }
 
-    public static void gcd(int x, int y){
-        int n = Math.min(x,y);
-        if (x%n==0 && y%n==0) {
-            System.out.println(n);
+    public static void gcd(int x, int y) {
+        int n = Math.min(x, y);
+        gcdHelper(x, y, n);
+    }
+    private static void gcdHelper(int x, int y, int n) {
+        if (x % n == 0 && y % n == 0) {
+            System.out.println("GCD is: " + n);
             return;
         }
-        n--;
-        gcd(x,y);
+        gcdHelper(x, y, n - 1);
     }
 
+    public static int gcdLongDivision(int x,int y){
+        while (x % y !=0){
+            int rem =x%y;
+            x=y;
+            y=rem;
+        }
+        return y;
+    }
+    public static int gcdEuclidRecursion(int x, int y){
+        if(y==0){
+            return x;
+        }
+        return gcdEuclidRecursion(y, x%y);
+    }
+    public static int lcm(int x, int y ){
+        return (x*y)/gcdEuclidRecursion(x,y);
+    }
 
 
     public static void main(String[] args) {
@@ -70,7 +88,9 @@ public class RecursionPractice {
 //        }
 //        sumOfDigits(123456);
 //        System.out.println(sumOfDigits(123456));
-       // gcd(12,16);
-
+      // gcd(12,16);
+        System.out.println(gcdLongDivision(12,24));
+        System.out.println(gcdEuclidRecursion(12,24));
+        System.out.println(lcm(4,5));
     }
 }
