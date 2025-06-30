@@ -1,6 +1,9 @@
 package dsa;
 
 public class BubbleSortt {
+
+    //bubble out largest element at last by swapping and comparing each element with next element
+
     public static void main(String[] args) {
         int count=0;
         int[] arr={64, 34, 25, 12, 22, 11, 90, 5};
@@ -20,6 +23,7 @@ public class BubbleSortt {
                     arr[j+1]=temp;
                     flag= true;
                     count++;
+
 
                 }}
                 if (!flag){
