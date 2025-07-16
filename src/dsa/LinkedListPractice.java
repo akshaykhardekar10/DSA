@@ -1,6 +1,7 @@
 package dsa;
 
 import java.util.LinkedList;
+import java.util.Vector;
 
 
 public class LinkedListPractice {
@@ -13,6 +14,7 @@ public class LinkedListPractice {
                this.data = data;
            }
     }
+
 
     public static class linkedlist {
         Node head=null;
@@ -107,13 +109,13 @@ public class LinkedListPractice {
             for (int i = 0; i < index-1; i++) {
                 temp = temp.next;
             }
-
             temp.next=temp.next.next;
             tail=temp;
         }
 
 
     public static void main(String[] args) {
+            
 //        LinkedList linkedList1= new LinkedList<Integer>();
 //        linkedList1.insertAtEnd(2);
 //        linkedList1.insertAtEnd(322);
@@ -122,16 +124,14 @@ public class LinkedListPractice {
 
         LinkedListPractice linkedListPractice = new LinkedListPractice();
 
-
-
         linkedlist linkedlist1=new linkedlist();
         linkedlist1.insertAtEnd(2);
         linkedlist1.insertAtEnd(43);
         linkedlist1.insertAtEnd(4553);
 //        linkedlist1.displayll();
         //linkedlist1.length();
-       linkedlist1.insertAtBeginning(29);
-       linkedlist1.displayll();
+        linkedlist1.insertAtBeginning(29);
+        linkedlist1.displayll();
         linkedlist1.insertAtIndex(4,1029);
         linkedlist1.displayll();
         System.out.println(linkedlist1.tail.data);
