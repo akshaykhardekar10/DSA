@@ -14,7 +14,7 @@ public class DFS {
 
         for (Integer i : adj.get(node)){
             if (vis[i]==false){
-                dfs(i,adj,vis,ans);
+                dfs(i,adj,vis, ans);
             }
         }
     }

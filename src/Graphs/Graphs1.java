@@ -6,12 +6,13 @@ import java.util.Queue;
 
 public class Graphs1 {
 
-        static int n=9;
-      static ArrayList<ArrayList<Integer>> adj1=new ArrayList<>();
-    public static ArrayList<ArrayList<Integer>> adjList(){
+    static int n = 9;
+    static ArrayList<ArrayList<Integer>> adj1 = new ArrayList<>();
+
+    public static ArrayList<ArrayList<Integer>> adjList() {
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i < n+1; i++) {
+        for (int i = 0; i < n+ 1; i++) {
             adj.add(new ArrayList<Integer>());
         }
 
@@ -41,56 +42,58 @@ public class Graphs1 {
 
         for (int i = 0; i < adj.size(); i++) {
             for (int j = 0; j < adj.get(i).size(); j++) {
-                System.out.print(adj.get(i).get(j) +" ");
+                System.out.print(adj.get(i).get(j) + " ");
             }
             System.out.println();
         }
-        adj1=adj;
+        adj1 = adj;
         return adj;
     }
 
-    public static ArrayList<Integer> bfs(int n , ArrayList<ArrayList<Integer>> adj ){
-         ArrayList<Integer> bfs =new ArrayList<>();
-         boolean[] visited =new boolean[n+1];
-         Queue <Integer> q = new LinkedList<>();
+    public static ArrayList<Integer> bfs(int n, ArrayList<ArrayList<Integer>> adj) {
+        ArrayList<Integer> bfs = new ArrayList<>();
+        boolean[] visited = new boolean[n + 1];
+        Queue<Integer> q = new LinkedList<>();
 
-         q.add(1);
-         visited[1]=true;
+        q.add(1);
+        visited[1] = true;
 
-         while(!q.isEmpty()) {
-             int node = q.poll();
-             bfs.add(node);
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            bfs.add(node);
 
-             for (Integer i : adj.get(node)) {
-                if(!visited[i]){
-                    visited[i]=true;
+            for (Integer i : adj.get(node)) {
+                if (!visited[i]) {
+                    visited[i] = true;
                     q.add(i);
                 }
-             }
-         }
-         return bfs;
+            }
+        }
+        return bfs;
     }
-    public static ArrayList<Integer> bfsRandomNode(int n , ArrayList<ArrayList<Integer>> adj ,int start){
-         ArrayList<Integer> bfs =new ArrayList<>();
-         boolean[] visited =new boolean[n+1];
-         Queue <Integer> q = new LinkedList<>();
 
-         q.add(start);
-         visited[start]=true;
+    public static ArrayList<Integer> bfsRandomNode(int n, ArrayList<ArrayList<Integer>> adj, int start) {
+        ArrayList<Integer> bfs = new ArrayList<>();
+        boolean[] visited = new boolean[n + 1];
+        Queue<Integer> q = new LinkedList<>();
 
-         while(!q.isEmpty()) {
-             int node = q.poll();
-             bfs.add(node);
+        q.add(start);
+        visited[start] = true;
 
-             for (Integer i : adj.get(node)) {
-                if(!visited[i]){
-                    visited[i]=true;
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            bfs.add(node);
+
+            for (Integer i : adj.get(node)) {
+                if (!visited[i]) {
+                    visited[i] = true;
                     q.add(i);
                 }
-             }
-         }
-         return bfs;
+            }
+        }
+        return bfs;
     }
+
     public static ArrayList<ArrayList<Integer>> adjList2() {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n + 1; i++) {
@@ -150,7 +153,6 @@ public class Graphs1 {
                 }
             }
         }
-
         return fullBfs;
     }
 
@@ -158,8 +160,8 @@ public class Graphs1 {
     public static void main(String[] args) {
         adjList();
         System.out.println("this is a bfs");
-        System.out.println(bfs(n,adj1));
-        System.out.println(bfsRandomNode(n,adj1,6));
+        System.out.println(bfs(n, adj1));
+        System.out.println(bfsRandomNode(n, adj1, 6));
 
         ArrayList<ArrayList<Integer>> adj2 = adjList2();
 
